@@ -14,7 +14,7 @@ def binary_search_r(
     :param r: right element
     :param a: list for search
     :param step: count of steps
-    :return: element id
+    :return: element id, count steps
     """
     middle = round((l + r) / 2)
     guess = a[middle]
