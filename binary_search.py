@@ -1,37 +1,42 @@
 #!/usr/bin/env python
 import random
-from typing import List
+from typing import List, Tuple
 
 
 Lists = List[List[int]]
-steps = 0
 
 
-def binary_search_r(numb: int, l: int, r: int, a: list) -> int:
-    """
-    Recursive binary search
+def binary_search_r(
+        numb: int, l: int, r: int, a: list, step=1) -> Tuple[int, int]:
+    """Recursive binary search algorithm
     :param numb: number for search
     :param l: left element
     :param r: right element
     :param a: list for search
-    :return: element number
+    :param step: count of steps
+    :return: element id
     """
+    middle = round((l + r) / 2)
+    guess = a[middle]
+    if guess == numb:
+        return middle, step
+    elif guess > numb:
+        step += 1
+        return binary_search_r(numb, l, middle-1, a, step)
+    else:
+        step += 1
+        return binary_search_r(numb, middle+1, r, a, step)
 
 
-    global steps
-    steps += 1
-    return 1
-
-
-def list_generator(orders: int) -> Lists:
-    """
-    :param orders: count orders you need get
-    :return: list lists count by order from 1 to n
+def list_generator(orders: int) -> List:
+    """Generate list by count orders
     if orders 1 will return
     [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
     if orders 3 wil return
     [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     [0, 1, 2,...,98, 99], [0, 1, 2,...,998,999]
+    :param orders: count orders you need get
+    :return: list lists count by order from 1 to n
     """
     sorted_lists = []
     for i in range(1, orders+1):
