@@ -7,22 +7,22 @@ Lists = List[List[int]]
 
 
 def binary_search_r(
-        numb: int, l: int, r: int, a: list, step=0) -> Tuple[int, int]:
+        numb: int, left: int, right: int, a: list, step=0) -> Tuple[int, int]:
     """Recursive binary search algorithm
     :param numb: number for search
-    :param l: left element
-    :param r: right element
+    :param left: left element
+    :param right: right element
     :param a: list for search
     :param step: count of steps
     :return: element id, count steps
     """
-    middle = round((l + r) / 2)
+    middle = round((left + right) / 2)
     guess = a[middle]
     step += 1
     if guess == numb:
         return middle, step
     elif guess > numb:
-        return binary_search_r(numb, l, middle-1, a, step)
+        return binary_search_r(numb, left, middle - 1, a, step)
     else:
         return binary_search_r(numb, middle + 1, right, a, step)
 
