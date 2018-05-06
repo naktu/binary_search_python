@@ -2,6 +2,7 @@
 import unittest
 from binary_search import list_generator
 
+
 class TestListGenerators(unittest.TestCase):
     def test_list_1(self):
         result = list_generator(1)
