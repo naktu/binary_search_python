@@ -1,6 +1,11 @@
 #!/usr/bin/env python
+import random
+from typing import List
 
+
+Lists = List[List[int]]
 steps = 0
+
 
 def binary_search_r(numb: int, l: int, r: int, a: list) -> int:
     """
@@ -15,9 +20,10 @@ def binary_search_r(numb: int, l: int, r: int, a: list) -> int:
 
     global steps
     steps += 1
-    return n
+    return 1
 
-def list_generator(orders: int) -> list:
+
+def list_generator(orders: int) -> Lists:
     """
     :param orders: count orders you need get
     :return: list lists count by order from 1 to n
@@ -29,7 +35,8 @@ def list_generator(orders: int) -> list:
     """
     sorted_lists = []
     for i in range(1, orders+1):
-        sorted_lists.append(list(range(10**i)))
+        sample_list = list(range(100 ** i))
+        sorted_lists.append(sorted(random.sample(sample_list, 10**i)))
     print(sorted_lists)
     return sorted_lists
 
