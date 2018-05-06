@@ -7,7 +7,7 @@ Lists = List[List[int]]
 
 
 def binary_search_r(
-        numb: int, l: int, r: int, a: list, step=1) -> Tuple[int, int]:
+        numb: int, l: int, r: int, a: list, step=0) -> Tuple[int, int]:
     """Recursive binary search algorithm
     :param numb: number for search
     :param l: left element
@@ -18,13 +18,12 @@ def binary_search_r(
     """
     middle = round((l + r) / 2)
     guess = a[middle]
+    step += 1
     if guess == numb:
         return middle, step
     elif guess > numb:
-        step += 1
         return binary_search_r(numb, l, middle-1, a, step)
     else:
-        step += 1
         return binary_search_r(numb, middle+1, r, a, step)
 
 
@@ -48,6 +47,9 @@ def list_generator(orders: int) -> List:
 
 def main():
     pass
+
+    # TODO interface for input size of lists TODO chose one list or more that one list
+    # TODO this function like a demo
 
 
 if __name__ == '__main__':
