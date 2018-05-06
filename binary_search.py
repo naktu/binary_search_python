@@ -24,7 +24,29 @@ def binary_search_r(
     elif guess > numb:
         return binary_search_r(numb, l, middle-1, a, step)
     else:
-        return binary_search_r(numb, middle+1, r, a, step)
+        return binary_search_r(numb, middle + 1, right, a, step)
+
+
+def binary_search(
+        numb: int, left: int, right: int, a: list) -> Tuple[int, int]:
+    """Binary search algorithm
+    :param numb:
+    :param left:
+    :param right:
+    :param a:
+    :return: element id, count steps
+    """
+    steps = 0
+    while True:
+        steps += 1
+        middle = round((left + right) / 2)
+        guess = a[middle]
+        if guess == numb:
+            return middle, steps
+        elif guess > numb:
+            right = middle - 1
+        else:
+            left = middle + 1
 
 
 def list_generator(orders: int) -> List:
