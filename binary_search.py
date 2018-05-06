@@ -31,18 +31,15 @@ def list_generator(orders: int) -> List:
     """Generate list by count orders
     if orders 1 will return
     [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
-    if orders 3 wil return
+    if orders 3 will return
     [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     [0, 1, 2,...,98, 99], [0, 1, 2,...,998,999]
     :param orders: count orders you need get
     :return: list lists count by order from 1 to n
     """
-    sorted_lists = []
     for i in range(1, orders+1):
         sample_list = list(range(100 ** i))
-        sorted_lists.append(sorted(random.sample(sample_list, 10**i)))
-    print(sorted_lists)
-    return sorted_lists
+        yield sorted(random.sample(sample_list, 10**i))
 
 
 def main():

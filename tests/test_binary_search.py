@@ -1,18 +1,20 @@
 #!/usr/bin/env python
 import unittest
 import random
-from binary_search import list_generator, binary_search_r
+from binary_search import list_generator, binary_search_r, binary_search
 
 
 class TestListGenerators(unittest.TestCase):
     def test_list_1(self):
         result = list_generator(1)
-        self.assertEqual(len(result[0]), 10)
+        for i in result:
+            self.assertEqual(len(i), 10)
 
     def test_list_couple(self):
-        result = list_generator(3)
-        self.assertEqual(len(result), 3)
-        self.assertEqual(len(result[2]), 1000)
+        count = 3
+        result = list_generator(count)
+        for i, j in enumerate(result, 1):
+            self.assertEqual(len(j), 10**i)
 
 
 class TestBinarySearchR(unittest.TestCase):
