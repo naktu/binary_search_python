@@ -65,10 +65,25 @@ def list_generator(orders: int) -> List:
 
 
 def main():
-    pass
-
-    # TODO interface for input size of lists TODO chose one list or more that one list
-    # TODO this function like a demo
+    print("Start")
+    count_orders = int(input("Enter the count orders: "))
+    print("Recursive algorithm")
+    list_check = list_generator(count_orders)
+    for i in list_check:
+        number = random.choice(i)
+        print("Find number {}".format(number))
+        index, steps = binary_search_r(number, 0, len(i) - 1, i)
+        print("Index of number {0} is {1}".format(number, index))
+        print("Steps {}".format(steps))
+    print("-" * 10)
+    print("While algorithm")
+    list_check = list_generator(count_orders)
+    for i in list_check:
+        number = random.choice(i)
+        print("Find number {}".format(number))
+        index, steps = binary_search(number, 0, len(i) - 1, i)
+        print("Index of number {0} is {1}".format(number, index))
+        print("Steps {}".format(steps))
 
 
 if __name__ == '__main__':
