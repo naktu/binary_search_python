@@ -19,13 +19,15 @@ def find_smallest(arr: list, step: int) -> Tuple[int, int]:
 def selection_in_place(arr: list):
     """ Selection sort in place
     :param arr: list for sorting
+    :return step: count of steps
     """
     step = 0
     for i in range(len(arr)):
         smallest_i = i
-        for j in range(i, len(arr)):
-            if arr[j] < arr[i]:
+        for j in range(i+1, len(arr)):
+            if arr[j] < arr[smallest_i]:
                 smallest_i = j
+            step += 1
         step += 1
         arr[i], arr[smallest_i] = arr[smallest_i], arr[i]
 
