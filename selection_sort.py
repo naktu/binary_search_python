@@ -30,6 +30,7 @@ def selection_in_place(arr: list):
             step += 1
         step += 1
         arr[i], arr[smallest_i] = arr[smallest_i], arr[i]
+    return step
 
 
 def selection_sort(arr: list) -> Tuple[list, int]:
