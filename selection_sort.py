@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import random
 from typing import Tuple
 
 
@@ -48,7 +49,26 @@ def selection_sort(arr: list) -> Tuple[list, int]:
 
 
 def main():
-    pass
+    print("Start")
+    count_elements = int(input("Enter the count of elements: "))
+    print("Selection sort")
+    list_check = random.sample(list(range(count_elements)), count_elements)
+    print("Array:")
+    print(list_check)
+    new_arr, steps = selection_sort(list_check)
+    print("Sorted array:")
+    print(new_arr)
+    print("Count of steps: {}".format(steps))
+    print('-' * 79)
+
+    print("Selection sort in place")
+    list_check = random.sample(list(range(count_elements)), count_elements)
+    print("Array:")
+    print(list_check)
+    steps = selection_in_place(list_check)
+    print("Sorted array:")
+    print(list_check)
+    print("Count of steps: {}".format(steps))
 
 
 if __name__ == '__main__':
