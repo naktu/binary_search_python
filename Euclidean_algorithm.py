@@ -4,7 +4,7 @@ def euclidean_r(a: int, b: int) -> int:
     """Recursive version of euclidean algorithm
     :param a: first number
     :param b: second number
-    :return: grates common devisor
+    :return: grates common divisor
     """
     if a == b:
         return a
@@ -17,7 +17,7 @@ def euclidean(a: int, b: int) -> int:
     """Euclidean algorithm
     :param a: first number
     :param b: second number
-    :return: grates common devisor
+    :return: grates common divisor
     """
     while True:
         if a == b:
@@ -29,9 +29,16 @@ def euclidean(a: int, b: int) -> int:
 
 
 def main():
-    f = euclidean(356896, 1545783)
-    print(f)
-
+    print("Start")
+    a = int(input("Enter first number: "))
+    b = int(input("Enter second number: "))
+    print("Recursive Euclidean algorithm:")
+    gcd = euclidean_r(a, b)
+    print("Grates common divisor : {}".format(gcd))
+    print("-" * 79)
+    print("Euclidean algorithm:")
+    gcd = euclidean_r(a, b)
+    print("Grates common divisor : {}".format(gcd))
 
 if __name__ == '__main__':
     main()
