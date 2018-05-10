@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 
-def factorial(n):
+def factorial(n: int) -> int:
     """ recursive factorial algorithm
     :param n: number for factorial
     :return: factorial of number
@@ -12,7 +12,7 @@ def factorial(n):
         return n * factorial(n-1)
 
 
-def non_recursive_factorial(n):
+def non_recursive_factorial(n: int) -> int:
     """Non recursive factorial algorithm
     :param n: number for factorial
     :return: factorial of number
