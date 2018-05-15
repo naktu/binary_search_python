@@ -9,9 +9,18 @@ def euclidean_r(a: int, b: int) -> int:
     if a == b:
         return a
     elif a > b:
-        return euclidean_r(b, a-b)
+        d, m = divmod(a, b)
+        if m == 0:
+            return b
+        else:
+            return euclidean_r(m, b)
     else:
-        return euclidean_r(a, b-a)
+        d, m = divmod(b, a)
+        if m == 0:
+            return b
+        else:
+            return euclidean_r(a, m)
+
 
 def euclidean(a: int, b: int) -> int:
     """Euclidean algorithm
@@ -23,9 +32,17 @@ def euclidean(a: int, b: int) -> int:
         if a == b:
             return a
         elif a > b:
-            a -= b
+             d, m = divmod(a, b)
+             if m == 0:
+                 return b
+             else:
+                 a = m
         else:
-            b -= a
+            d, m = divmod(b, a)
+            if m == 0:
+                return a
+            else:
+                b = m
 
 
 def main():
