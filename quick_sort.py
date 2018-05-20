@@ -18,7 +18,7 @@ def quick_s_add_lists(arr: list) -> list:
         for i in arr:
             if i < pivot:
                 less.append(i)
-            elif i < pivot:
+            elif pivot < i:
                 greater.append(i)
             else:
                 middle.append(i)
